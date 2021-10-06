@@ -1,0 +1,71 @@
+<html>	
+<head>
+{%extends "studentapp/base.html"%}
+{%block content%}
+<style>
+body {
+    margin: 0px;
+}
+
+h1 {
+    padding: 20px;
+    background-color: aqua;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+table {
+    width: 90%;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    margin: auto;
+    margin-top: 30px;
+}
+
+th {
+    background-color: darkmagenta;
+    font-weight: 600;
+    padding: 15px;
+}
+
+td {
+    background-color: navy;
+    padding: 10px;
+    font-weight: 400;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+button {
+    position: relative;
+    margin-top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: cornflowerblue;
+    border: none;
+    padding: 15px;
+    color: white;
+    border-radius: 12px;
+}
+</style>
+</head>
+<body>
+<h1> Update Student Details Here </h1>
+<form method='POST'>
+{% csrf_token%}
+<table>
+<tr><td>Student Roll Number:</td><td><input type='text' name='student_roll_number' value="{{update.student_roll_number}}"></td></tr>
+<tr><td>Student Name:</td><td><input type='text' name='student_name' value="{{update.student_name}}"></td></tr>
+<tr><td>Student Class:</td><td><input type='text' name='student_class' value="{{update.student_class}}"></td></tr>
+<tr><td>Student Address:</td><td><input type='text' name='student_address' value="{{update.student_address}}"></td></tr>
+</table>
+<br>
+<button type='submit'>Submit</button>
+</form>
+</body>
+{%endblock%}
+</html>

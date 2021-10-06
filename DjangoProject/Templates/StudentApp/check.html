@@ -1,0 +1,73 @@
+<html>	
+{%extends "StudentApp/base.html"%}
+{%block content%}
+<head>
+<style>
+body {
+    margin: 0px;
+}
+
+h1 {
+    padding: 20px;
+    background-color: aqua;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+table {
+    width: 90%;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    margin: auto;
+    margin-top: 30px;
+}
+
+th {
+    background-color: darkmagenta;
+    font-weight: 600;
+    padding: 15px;
+}
+
+td {
+    background-color: navy;
+    padding: 10px;
+    font-weight: 400;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+button {
+    position: relative;
+    margin-top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: cornflowerblue;
+    border: none;
+    padding: 15px;
+    color: white;
+    border-radius: 12px;
+}
+</style>
+</head>
+<body>
+<h1> Student Details Table </h1>
+<table>
+<tr><th>Roll No</th><th>Name</th><th>Class</th><th>Address</th><th>Modify / Delete</th></tr>
+<tr>{% for st in data %}
+<td>{{st.student_roll_number}}</td>
+<td>{{st.student_name}}</td>
+<td>{{st.student_class}}</td> 
+<td>{{st.student_address}}</td> 
+<td><a href='/StudentApp/update/{{st.id}}' >Update</a> (or) <a href='/StudentApp/delete/{{st.id}}'>Delete</a>
+</tr>{% endfor %}
+</table> 
+<br>
+<a href="/StudentApp/create"><button type='button'>Add New Student</button></a>
+{%endblock%}
+</body>
+</html>
+
